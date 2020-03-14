@@ -1,3 +1,4 @@
 function signal = generateRandomSignal(length)
-    signal = [0 1 0 1]; 
+    signal = randi([0,1],1,length); 
 end
+
