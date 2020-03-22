@@ -1,10 +1,12 @@
 
-function save (length,BER,actualBER)
-  #save -ascii "data.txt" lenght
-  #A=int2str (lenght)
-  #fid=fopen('data.mat','w');
-  #fdisp(fid,x)
-  #save data.txt x
+function save (length, BER, actualBER)
+
+  fid = fopen('data.txt','a');
+  your_data = [length, BER, actualBER]; 
+  fprintf(fid,'%f ', your_data);
+  fprintf(fid,'\n');
+  fclose(fid);
+ 
 endfunction
 
 
