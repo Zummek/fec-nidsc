@@ -1,22 +1,18 @@
 function hist_ber_actualber
 
-  A = dlmread('data_10k_0.0075.txt');
-  B = dlmread('data_10k_0.005.txt');
-  ax = NaN (1,200);
+  A = dlmread('data_10k_0.0075.txt'); #BER - 0,0075
+  B = dlmread('data_10k_0.05.txt'); #BER - 0,05
   ay = NaN (1,200);
-  bx = NaN (1,200);
   by = NaN (1,200);
   
   for i=1:200
-    ax(1,[i]) = A (i,[2]);
     ay(1,[i]) = A (i,[3]);
-    bx(1,[i]) = A (i,[2]);
     by(1,[i]) = A (i,[3]);
   end
-  
-bar(ax, ay)
-title ("bar graph ber-actualber")
-bar(bx, by)
-title ("bar graph ber-actualber")
+
+  subplot(2,1,1)
+  bar(ay, 0,0075)
+  subplot(2,1,2)
+  bar(by, 0,05)
 
 endfunction
