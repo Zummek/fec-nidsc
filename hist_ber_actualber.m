@@ -7,12 +7,14 @@ function hist_ber_actualber
   
   for i=1:200
     ay(1,[i]) = A (i,[3]);
-    by(1,[i]) = A (i,[3]);
+    by(1,[i]) = B (i,[3]);
   end
 
   subplot(2,1,1)
-  bar(ay, 0,0075)
+  hist(ay, 20)
+  title('BER = 0.0075')
   subplot(2,1,2)
-  bar(by, 0,05)
+  hist(by, 20)
+  title('BER = 0.05')
 
 endfunction
