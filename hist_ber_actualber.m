@@ -11,10 +11,10 @@ function hist_ber_actualber
   end
 
   subplot(2,1,1)
-  hist(ay, 20)
+  hist(ay, 10)
   title('BER = 0.0075')
   subplot(2,1,2)
-  hist(by, 20)
+  hist(by, 10)
   title('BER = 0.05')
 
 endfunction
