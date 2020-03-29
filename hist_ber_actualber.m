@@ -1,6 +1,6 @@
 function hist_ber_actualber
 
-  A = dlmread('data_5k_0.0075.txt'); #BER - 0,0075
+  A = dlmread('data_5k_0.0075.txt'); #BER - 0,0075 dla 
   B = dlmread('data_5k_0.05.txt'); #BER - 0,05
   ay = NaN (1,1000);
   by = NaN (1,1000);
