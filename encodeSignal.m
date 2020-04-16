@@ -5,4 +5,4 @@ function encoded = encodeSignal(signal)
         encoded =[encoded,signal(i)];
       end
     end
-end
+endfunction

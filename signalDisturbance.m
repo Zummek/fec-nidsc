@@ -8,4 +8,4 @@ function disturbanced = signalDisturbance(signal, BER)
   end
   
   disturbanced = signal;
-end
+endfunction

@@ -1,5 +1,4 @@
 function hist_ber_actualber
-
   A = dlmread('data_5k_0.0075.txt'); #BER - 0,0075
   B = dlmread('data_5k_0.05.txt'); #BER - 0,05
   ay = NaN (1,1000);
@@ -16,5 +15,4 @@ function hist_ber_actualber
   subplot(2,1,2)
   hist(by, 10)
   title('BER = 0.05')
-
 endfunction

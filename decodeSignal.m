@@ -19,5 +19,5 @@ function [decoded,actualBER] = decodeSignal(signal)
     end
     disp(errors);
     actualBER = errors/signalLength
-end
+endfunction
 
