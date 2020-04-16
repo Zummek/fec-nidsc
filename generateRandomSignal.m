@@ -1,4 +1,4 @@
-function signal = generateRandomSignal(length)
-    signal = randi([0,1],1,length); 
-end
+function signal = generateRandomSignal(dataBitLength)
+    signal = randint(10, dataBitLength); 
+endfunction
 
