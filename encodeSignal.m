@@ -1,3 +1,8 @@
 function encoded = encodeSignal(signal)
-    encoded = [0 0 0 1 1 1 0 0 0 1 1 1]; 
-end
+    encoded = [];
+    for i= 1:length(signal) 
+      for j= 1:3 
+        encoded =[encoded,signal(i)];
+      end
+    end
+endfunction
