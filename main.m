@@ -14,10 +14,12 @@ for i=0:1:0
   encoded = encodeSignal(data, packageLength, dataBitLength);
   disturbanced = signalDisturbance(encoded, packageLength);
   [decoded, err] = decodeSignal(disturbanced, dataBitLength, BCHCorrection);
+  [errAmount, BER] = biterr(data, decoded);
   
   % debugger :) 
   disp("data: "), disp(data);
   disp("disturbanced: "), disp(disturbanced);
   disp("decoded: "), disp(decoded);
-  disp("err: "), disp(err);
+  disp("errAmount: "), disp(errAmount);
+  disp("err: "), disp(BER);
 end
