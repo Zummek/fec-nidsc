@@ -1,10 +1,15 @@
-function [errAmount,BER] = calculateBER(signalBefore,signalAfter)
+function [errAmount, BER] = calculateBER(signalBefore, signalAfter)
   errors=0;
-  for i=1:length(signalBefore)
-     if signalBefore(i)!=signalAfter(i)
-         errors+=1;
-     end
+  [nr, nc] = size (signalBefore);
+  
+  for i=1:nr
+    for j=1:nc
+      if signalBefore(i, j) != signalAfter(i, j)
+        errors++;
+      end
+    end
   end
+  
   errAmount = errors;
-  BER  = errAmount/length(signalBefore);
+  BER = errAmount/( nr * nc );
 endfunction
