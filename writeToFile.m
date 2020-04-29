@@ -1,6 +1,6 @@
-function writeToFile (length, BER, actualBER)
-  fid = fopen('data.txt','a');
-  your_data = [length, BER, actualBER]; 
+function writeToFile (correctBits,errAmount,BER)
+  fid = fopen('data_3_4.txt','a');
+  your_data = [correctBits,errAmount,BER]; 
   fprintf(fid,'%f ', your_data);
   fprintf(fid,'\n');
   fclose(fid);
