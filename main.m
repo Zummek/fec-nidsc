@@ -1,29 +1,26 @@
+
 clear all;
 close all;
 
 % Parameter
-BCHBase = 3;
+BCHBase = 8;
 packageLength = 2^BCHBase - 1;
-dataBitLength = 4;
+dataBitLength = 247;
 BCHCorrection = 1;
+actualBER = 0.2;
 
 % Main loop for tests
-for i=0:25
-  disp("index:"), disp(i);
+for i=0:2000
   data = generateRandomSignal(dataBitLength);
   encoded = encodeSignal(data, packageLength, dataBitLength);
-  disturbanced = signalDisturbance(encoded, packageLength);
+  disturbanced = signalDisturbance(encoded, actualBER);
   [decoded, err] = decodeSignal(disturbanced, dataBitLength, BCHCorrection);
   [errAmount, BER] = calculateBER(data, decoded);
   
-  ERRcount=Validate(encoded,decoded)
-  BER=ERRcount/dataBitLength
-  EfficiencyRate = (dataBitLength - ERRcount) / length(disturbanced)
-
-  % [nr, nc] = size (decoded);
-  % bitsAmount = (nr*nc);
-  % correctBits = (bitsAmount - errAmount) / bitsAmount;
- %  writeToFile(correctBits,errAmount,BER);
+  [nr, nc] = size (decoded);
+  bitsAmount = (nr*nc);
+  E = (bitsAmount - errAmount) / bitsAmount;
+  writeToFile([E, errAmount, BER], "data_8_247_1_0.2");    % data_BCHBAse_DataBitLength_BCHcorrection_actualBer (actual BER to prawdopodobieñstwo przek³amania tych bitów na poczatku) 
   % debugger :) 
   %disp("data: "), disp(data);
   %disp("disturbanced: "), disp(disturbanced);
