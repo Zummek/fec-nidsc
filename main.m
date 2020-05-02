@@ -2,17 +2,17 @@ clear all;
 close all;
 
 % Parameter
-BCHBase = 3;
+BCHBase = 7;
 packageLength = 2^BCHBase - 1;
-dataBitLength = 4;
-BCHCorrection = 0;
+dataBitLength = 120;
+BCHCorrection = 1;
+actualBER = 0.03;
 
 % Main loop for tests
-for i=0:10
-  disp("index:"), disp(i);
+for i=0:1:2000
   data = generateRandomSignal(dataBitLength);
   encoded = encodeSignal(data, packageLength, dataBitLength);
-  disturbanced = signalDisturbance(encoded, packageLength);
+  disturbanced = signalDisturbance(encoded, actualBER);
   [decoded, err] = decodeSignal(disturbanced, dataBitLength, BCHCorrection);
   [errAmount, BER] = calculateBER(data, decoded);
   
