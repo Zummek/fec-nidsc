@@ -2,24 +2,28 @@ clear all;
 close all;
 
 % Parameter
-BCHBase = 7;
+BCHBase = 3;
 packageLength = 2^BCHBase - 1;
-dataBitLength = 120;
+dataBitLength = 4;
 BCHCorrection = 1;
-actualBER = 0.03;
 
 % Main loop for tests
-for i=0:1:2000
+for i=0:25
+  disp("index:"), disp(i);
   data = generateRandomSignal(dataBitLength);
   encoded = encodeSignal(data, packageLength, dataBitLength);
-  disturbanced = signalDisturbance(encoded, actualBER);
+  disturbanced = signalDisturbance(encoded, packageLength);
   [decoded, err] = decodeSignal(disturbanced, dataBitLength, BCHCorrection);
   [errAmount, BER] = calculateBER(data, decoded);
   
-  [nr, nc] = size (decoded);
-  bitsAmount = (nr*nc);
-  correctBits = (bitsAmount - errAmount) / bitsAmount;
-  writeToFile([correctBits, errAmount, BER], "data_7_120_03");    % data_BCHBAse_DataBitLength_actualBer
+  ERRcount=Validate(encoded,decoded)
+  BER=ERRcount/dataBitLength
+  EfficiencyRate = (dataBitLength - ERRcount) / length(disturbanced)
+
+  % [nr, nc] = size (decoded);
+  % bitsAmount = (nr*nc);
+  % correctBits = (bitsAmount - errAmount) / bitsAmount;
+ %  writeToFile(correctBits,errAmount,BER);
   % debugger :) 
   %disp("data: "), disp(data);
   %disp("disturbanced: "), disp(disturbanced);
