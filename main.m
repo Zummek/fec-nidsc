@@ -19,7 +19,7 @@ for i=0:1:2000
   [nr, nc] = size (decoded);
   bitsAmount = (nr*nc);
   correctBits = (bitsAmount - errAmount) / bitsAmount;
-  writeToFile(correctBits,errAmount,BER);
+  writeToFile([correctBits, errAmount, BER], "data_7_120_03");    % data_BCHBAse_DataBitLength_actualBer
   % debugger :) 
   %disp("data: "), disp(data);
   %disp("disturbanced: "), disp(disturbanced);
