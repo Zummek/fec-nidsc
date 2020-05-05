@@ -25,7 +25,7 @@ for i=0.025:0.025:0.3
     dataBitsAmount = nrDecoded * ncDecoded;
     E = (dataBitsAmount - errAmount) / bitsAmount;
     
-   writeToFile([E, errAmount, BER], ["data_8_13_59_" num2str(actualBER)]);    % data_BCHBAse_DataBitLength_BCHcorrection_actualBer (actual BER to prawdopodobieñstwo przek³amania tych bitów na poczatku) 
+    writeToFile([E, errAmount, BER], ["data_8_13_59_" num2str(actualBER)]);    % data_BCHBAse_DataBitLength_BCHcorrection_actualBer (actual BER to prawdopodobieï¿½stwo przekï¿½amania tych bitï¿½w na poczatku) 
     
     % debugger :) 
     %disp("data: "), disp(data);
