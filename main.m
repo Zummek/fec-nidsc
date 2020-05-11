@@ -19,16 +19,20 @@ for i=0.025:0.025:0.3
     [decoded, err] = decodeSignal(disturbanced, dataBitLength, BCHCorrection);
     [errAmount, BER] = calculateBER(data, decoded);
     
-    [nr, nc] = size (decoded);
-    bitsAmount = (nr*nc);
-    E = (bitsAmount - errAmount) / bitsAmount;
+    [nrDisturbanced, ncDisturbanced] = size(disturbanced);
+    [nrDecoded, ncDecoded] = size(decoded);
+    bitsAmount = nrDisturbanced * ncDisturbanced;
+    dataBitsAmount = nrDecoded * ncDecoded;
+    E = (dataBitsAmount - errAmount) / bitsAmount;
+    
     writeToFile([E, errAmount, BER], ["data_5_21_2_" num2str(actualBER)]);    % data_BCHBAse_DataBitLength_BCHcorrection_actualBer (actual BER to prawdopodobieñstwo przek³amania tych bitów na poczatku) 
+    
     % debugger :) 
     %disp("data: "), disp(data);
     %disp("disturbanced: "), disp(disturbanced);
     %disp("decoded: "), disp(decoded);
-    %disp("E:"), disp(correctBits);
+    %disp("E:"), disp(E);
     %disp("errAmount: "), disp(errAmount);
-    %disp("err: "), disp(BER);
+    %disp("BER: "), disp(BER);
   endfor
 endfor
