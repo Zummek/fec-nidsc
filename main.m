@@ -3,10 +3,10 @@ clear all;
 close all;
 
 % Parameter
-BCHBase = 5;
+BCHBase = 8;
 packageLength = 2^BCHBase - 1;
-dataBitLength = 6;
-BCHCorrection = 7;
+dataBitLength = 13;
+BCHCorrection = 59;
 %actualBER = 0.3;
 
 % Main loop for tests
@@ -25,7 +25,7 @@ for i=0.025:0.025:0.3
     dataBitsAmount = nrDecoded * ncDecoded;
     E = (dataBitsAmount - errAmount) / bitsAmount;
     
-    writeToFile([E, errAmount, BER], ["data_5_6_7_" num2str(actualBER)]);    % data_BCHBAse_DataBitLength_BCHcorrection_actualBer (actual BER to prawdopodobieñstwo przek³amania tych bitów na poczatku) 
+   writeToFile([E, errAmount, BER], ["data_8_13_59_" num2str(actualBER)]);    % data_BCHBAse_DataBitLength_BCHcorrection_actualBer (actual BER to prawdopodobieñstwo przek³amania tych bitów na poczatku) 
     
     % debugger :) 
     %disp("data: "), disp(data);
