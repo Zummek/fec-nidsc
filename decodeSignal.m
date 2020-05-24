@@ -3,6 +3,7 @@ function [decoded,actualBER] = decodeSignal(signal)
     decoded = zeros(1,signalLength/3);
     j = 1; 
     errors = 0;
+    
     for i=1:3:signalLength
         sum = signal(i)+signal(i+1)+signal(i+2);
         if sum < 2
@@ -17,7 +18,7 @@ function [decoded,actualBER] = decodeSignal(signal)
         
         j++;
     end
-    disp(errors);
-    actualBER = errors/signalLength
+
+    actualBER = errors/signalLength;
 endfunction
 
